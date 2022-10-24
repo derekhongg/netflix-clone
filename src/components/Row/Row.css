@@ -5,13 +5,20 @@
 
 .row__posters {
     display: flex;
-    overflow-y: hidden;
     overflow-x: scroll;
+    overflow-y: hidden;
     padding: 20px;
 }
 
 .row__posters::-webkit-scrollbar {
-    display: none;
+    background-color:#111;
+    width:16px
+}
+
+.row__posters::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 16px;
+    border: 4px;
 }
 
 .row__poster {
