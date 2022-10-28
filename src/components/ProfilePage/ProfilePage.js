@@ -4,6 +4,7 @@ import { selectUser } from '../../features/counter/userSlice';
 import { auth } from '../../firebase';
 import Nav from '../Nav/Nav';
 import './ProfilePage.css'
+import Plans from '../Plans/Plans';
 
 function ProfilePage() {
 
@@ -23,6 +24,8 @@ function ProfilePage() {
                         <h2>{user.email}</h2>
                         <div className='profilePage__plans'>
                             <h3>Plans</h3>
+                            
+                            <Plans/>
                             <button
                                 className='profilePage__signOut'
                                 onClick={() => auth.signOut()}
