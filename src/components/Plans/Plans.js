@@ -13,8 +13,7 @@ function Plans() {
             const products = {};
             querySnapshot.forEach(async (productDoc) => {
                 products[productDoc.id] = productDoc.data();
-                const priceSnap = await productDoc.ref.collection
-                ("prices").get();
+                const priceSnap = await productDoc.ref.collection("prices").get();
                 priceSnap.docs.forEach((price) => {
                     products[productDoc.id].prices = {
                         priceId: price.id,
@@ -24,13 +23,14 @@ function Plans() {
             });
             setProducts(products);
         });
+        console.log(products)
     }, []);
 
-    console.log(products);
+    console.log(products, "----------");
 
     return (
         <div className='plans'>
-            
+            {Object.entries(products).map([productId, productData])}
         </div>
     )
 }
