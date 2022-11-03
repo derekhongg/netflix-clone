@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/counter/userSlice';
 import db from '../../firebase';
+import { loadStripe, redirectToCheckout } from "@stripe/react-stripe-js"
 
 function Plans() {
 
@@ -47,7 +48,8 @@ function Plans() {
             }
 
             if(sessionId) {
-                const stripe = await loadStripe('')
+                const stripe = await loadStripe(`${process.env.STRIPE_PK}`);
+                stripe.redirectToCheckout({ sessionId });
             }
         })
     }
@@ -62,7 +64,7 @@ function Plans() {
                             <h6>{productData.description}</h6>
                         </div>
 
-                        <button onClick={loadCheckout(productData.prices.priceId)}>Subscribe</button>
+                        <button onClick={loadCheckout(productData.prices)}>Subscribe</button>
                     </div>
                 )
             })}
