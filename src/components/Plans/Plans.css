@@ -1,15 +1,15 @@
-.plans__plan {
+.plansScreen__plan {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     opacity: 0.8;
 }
 
-.plans__plan:hover {
+.plansScreen__plan:hover {
     opacity: 1;
 }
 
-.plans__plan > button {
+.plansScreen__plan > button {
     padding: 10px 20px;
     font-size: 1rem;
     color: white;
